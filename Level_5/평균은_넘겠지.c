@@ -7,36 +7,44 @@
 
 int main()
 {
-	int C, N;
-	int* arr;
-	double* avg;
+	int testcase, N, num;
 	int sum = 0;
 
-	scanf_s("%d", &C);
+	float avg = 0;
+	float high;
+	float perc[1000] = { 0, };
 
-	for (int i = 0; i < C; i++)
+	scanf("%d", &testcase);
+
+
+	for (int i = 0; i < testcase; i++)
 	{
-		scanf_s("%d", &N);
+		scanf("%d", &N);
 
-		arr = malloc(sizeof(int) * N);
-		
+		sum = 0;
+		high = 0;
+		int* score = malloc(sizeof(int) * N);
+
 		for (int j = 0; j < N; j++)
 		{
-			scanf("%d", &arr[j]);
-
-			sum += arr[j];
-
-			for (int j = 0; j < N; j++)
-			{
-				avg = malloc(sizeof(double));
-
-				avg[j] = sum / N;
-
-				printf("%lf", avg[j]);
-
-				free(avg);
-			}
+			scanf("%d", &num);
+			score[j] = num;
+			sum += score[j];
 		}
-		free(arr);
+
+		avg = sum / N;
+
+		for (int k = 0; k < N; k++)
+		{
+			if (score[k] > avg)
+				high++;
+		}
+		perc[i] = high / N * 100;
+
+		printf("%.3f%%\n", perc[i]);
+
+		free(score);
 	}
+
+	return 0;
 }
