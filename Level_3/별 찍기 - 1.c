@@ -1,4 +1,4 @@
-//���� ��� ���� 1
+//º°À» Âï´Â ¹®Á¦ 1
 
 #define _CRT_SECURE_NO_WARNINGS
 
